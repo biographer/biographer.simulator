@@ -4,9 +4,13 @@
 rm layout -fR
 
 # clone
-hg clone --rev c2f3bf5d6985 https://code.google.com/p/biographer.layout/ --rev experimental layout
+hg clone https://code.google.com/p/biographer.layout/ --rev experimental layout
 
 # we need only the layout sources
+if [ ! -e 'layout' ]; then
+	echo 'checkout failed'
+	exit 1
+	fi
 cd layout
 rm article example_networks perl pictures -fR
 rm .hg* -fR
